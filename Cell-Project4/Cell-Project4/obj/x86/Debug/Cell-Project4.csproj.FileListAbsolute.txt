@@ -1,0 +1,10 @@
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Debug\Content\Sprites\background.xnb
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Debug\Content\Sprites\cannon.xnb
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Debug\Content\Sprites\cannonball.xnb
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Debug\Content\Sprites\enemy.xnb
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Debug\Cell-Project4.exe
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Debug\Cell-Project4.pdb
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Debug\Cell-Project4.exe
+c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Debug\Cell-Project4.pdb

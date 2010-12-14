@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cell-Project4", "Cell-Project4\Cell-Project4\Cell-Project4.csproj", "{4C3CD579-FDC7-469E-8F07-DC237D7AFA27}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Cell-Project4Content", "Cell-Project4\Cell-Project4Content\Cell-Project4Content.contentproj", "{323BBF66-135D-4A93-849A-AAB88247F76C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C3CD579-FDC7-469E-8F07-DC237D7AFA27}.Debug|x86.ActiveCfg = Debug|x86
+		{4C3CD579-FDC7-469E-8F07-DC237D7AFA27}.Debug|x86.Build.0 = Debug|x86
+		{4C3CD579-FDC7-469E-8F07-DC237D7AFA27}.Release|x86.ActiveCfg = Release|x86
+		{4C3CD579-FDC7-469E-8F07-DC237D7AFA27}.Release|x86.Build.0 = Release|x86
+		{323BBF66-135D-4A93-849A-AAB88247F76C}.Debug|x86.ActiveCfg = Debug|x86
+		{323BBF66-135D-4A93-849A-AAB88247F76C}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
