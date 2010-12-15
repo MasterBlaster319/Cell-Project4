@@ -22,6 +22,8 @@ namespace Cell_Project4
         Rectangle Viewport;
 
         GameObject[] CannonBalls;
+        GamePadState previousGamePadState = GamePad.GetState(PlayerIndex.One);
+        KeyboardState previousKeyboardState = Keyboard.GetState();
         GameObject Cannon;
 
         // It is considered good style that const variables are in all uppercase.
@@ -56,10 +58,10 @@ namespace Cell_Project4
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            backgroundTexture = Content.Load<Texture2D>("Sprites\\cannonball");
+            backgroundTexture = Content.Load<Texture2D>("Sprites\\background");
 
             Cannon = new GameObject(Content.Load<Texture2D>("Sprites\\cannon"));
-            Cannon.position = new Vector2(600, graphics.GraphicsDevice.Viewport.Height - 350);
+            Cannon.position = new Vector2(750, graphics.GraphicsDevice.Viewport.Height - 250);
             CannonBalls = new GameObject[MAXCANNONBALLS];
             for (int i = 0; i < MAXCANNONBALLS; i++)
             {
@@ -97,9 +99,15 @@ namespace Cell_Project4
             {
                 Cannon.rotation += 0.1f;
             }
-
+            if(KeyboardState.IsKeyDown(Keys.Space) &&
+                previousKeyboardState.IsKeyUp(Keys.Space)
+            {
+                FireCannonBall();
+            }
             UpdateCannonBalls();
 
+            previousKeyboardState = KeyboardState;
+#endif
             base.Update(gameTime);
         }
 
