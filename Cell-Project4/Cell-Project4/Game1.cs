@@ -20,14 +20,14 @@ namespace Cell_Project4
         SpriteBatch spriteBatch;
         Texture2D backgroundTexture;
         Rectangle Viewport;
-
-        GameObject[] CannonBalls;
-        GamePadState previousGamePadState = GamePad.GetState(PlayerIndex.One);
-        KeyboardState previousKeyboardState = Keyboard.GetState();
         GameObject Cannon;
+        const int MAXCANNONBALLS = 3;
+        GameObject[] CannonBalls;
+        KeyboardState previousKeyboardState = Keyboard.GetState();
+      
 
         // It is considered good style that const variables are in all uppercase.
-        const int MAXCANNONBALLS = 3;
+        
 
         const int MAXENEMIES = 3;
         const float MAXENEMYHEIGHT = 0.1f;
@@ -69,14 +69,14 @@ namespace Cell_Project4
             Cannon = new GameObject(Content.Load<Texture2D>("Sprites\\cannon"));
             Cannon.position = new Vector2(750, graphics.GraphicsDevice.Viewport.Height - 250);
             CannonBalls = new GameObject[MAXCANNONBALLS];
-            for (int i = 0; i < MAXCANNONBALLS; i++)
+            for(int i = 0; i < MAXCANNONBALLS; i++)
             {
                 CannonBalls[i] = new GameObject(Content.Load<Texture2D>("Sprites\\cannonball"));
                 Viewport = new Rectangle(0, 0,
                     graphics.GraphicsDevice.Viewport.Width,
                     graphics.GraphicsDevice.Viewport.Height);
                 enemies = new GameObject[MAXENEMIES];
-                for (int t = 0; i < MAXENEMIES; t++)
+                for (int t = 0; t < MAXENEMIES; t++)
                 {
                     enemies[i] = new GameObject(
                         Content.Load<Texture2D>("Sprites\\enemy"));
@@ -112,15 +112,54 @@ namespace Cell_Project4
             {
                 Cannon.rotation += 0.1f;
             }
-            if (StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
-            {
-                FireCannonBall();
-            }
-            UpdateCannonBalls();
+           
+             if (StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
+           
+          
+             UpdateCannonBalls();
 
             previousKeyboardState = StateOfTheKeyboard;
             base.Update(gameTime);
         }
+
+        public void FireCannonBall()
+        {
+            foreach (GameObject ball in CannonBalls)
+            {
+                if (!ball.alive)
+                {
+                    ball.alive = true;
+                    ball.position = Cannon.position - ball.center;
+                    ball.velocity = new Vector2(
+                        (float)Math.Cos(Cannon.rotation),
+                        (float)Math.Sin(Cannon.rotation))
+                        * 5.0f;
+                    return;
+                }
+            }
+        }
+        
+        
+        
+        public void UpdateCannonBalls()
+        {
+            foreach (GameObject ball in CannonBalls)
+            {
+                if (ball.alive)
+                {
+                    ball.position += ball.velocity;
+                    if (!Viewport.Contains (new Point (
+                        (int)ball.position.X,
+                        (int)ball.position.Y)))
+                    {
+                        ball.alive = false;
+                        continue;
+                    }
+                }
+            }
+        }
+
+
 
         private void FireCannonBall()
         {
@@ -130,31 +169,7 @@ namespace Cell_Project4
 
         /// <summary>
         /// We all this when we want to update the screen position of the cannon balls.
-        /// </summary>
-        public void UpdateCannonBalls()
-        {
-            foreach (GameObject ball in CannonBalls)
-            {
-                if (!ball.alive)
-                {
-
-                    ball.position += ball.velocity;
-                    if (!Viewport.Contains(new Point(
-                        (int)ball.position.X,
-                        (int)ball.position.Y)))
-                    {
-                        ball.alive = true;
-                        continue;
-                    }
-                    ball.position = Cannon.position = ball.center;
-                    ball.velocity = new Vector2(
-                        (float)Math.Cos(Cannon.rotation),
-                        (float)Math.Sin(Cannon.rotation))
-                        * 5.0f;
-                    return;
-                }
-            }
-        }
+       
 
         /// <summary>
         /// This is called when the game should draw itself.
