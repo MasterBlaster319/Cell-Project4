@@ -29,7 +29,13 @@ namespace Cell_Project4
         // It is considered good style that const variables are in all uppercase.
         const int MAXCANNONBALLS = 3;
 
-
+        const int MAXENEMIES = 3;
+        const float MAXENEMYHEIGHT = 0.1f;
+        const float MINENEMYHEIGHT = 0.5f;
+        const float MAXENEMYVELOCITY = 5.0f;
+        const float MINENEMYVELOCITY = 1.0f;
+        Random random = new Random();
+        GameObject[] enemies;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -69,9 +75,16 @@ namespace Cell_Project4
                 Viewport = new Rectangle(0, 0,
                     graphics.GraphicsDevice.Viewport.Width,
                     graphics.GraphicsDevice.Viewport.Height);
+                enemies = new GameObject[MAXENEMIES];
+                for (int t = 0; i < MAXENEMIES; t++)
+                {
+                    enemies[i] = new GameObject(
+                        Content.Load<Texture2D>("Sprites\\enemy"));
+                }
             }
         }
 
+       
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -99,7 +112,7 @@ namespace Cell_Project4
             {
                 Cannon.rotation += 0.1f;
             }
-            if(StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
+            if (StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
             {
                 FireCannonBall();
             }
@@ -112,7 +125,7 @@ namespace Cell_Project4
         private void FireCannonBall()
         {
             // Remove this exception throw and add your code here.
-            throw new NotImplementedException();
+
         }
 
         /// <summary>
@@ -120,11 +133,25 @@ namespace Cell_Project4
         /// </summary>
         public void UpdateCannonBalls()
         {
-            foreach (GameObject Ball in CannonBalls)
+            foreach (GameObject ball in CannonBalls)
             {
-                if (Ball.alive)
+                if (!ball.alive)
                 {
-                    Ball.position += Ball.velocity;
+
+                    ball.position += ball.velocity;
+                    if (!Viewport.Contains(new Point(
+                        (int)ball.position.X,
+                        (int)ball.position.Y)))
+                    {
+                        ball.alive = true;
+                        continue;
+                    }
+                    ball.position = Cannon.position = ball.center;
+                    ball.velocity = new Vector2(
+                        (float)Math.Cos(Cannon.rotation),
+                        (float)Math.Sin(Cannon.rotation))
+                        * 5.0f;
+                    return;
                 }
             }
         }
@@ -139,6 +166,15 @@ namespace Cell_Project4
 
             spriteBatch.Begin();
             spriteBatch.Draw(backgroundTexture, Viewport, Color.White);
+            foreach (GameObject ball in CannonBalls)
+            {
+                if (ball.alive)
+                {
+                    spriteBatch.Draw(ball.sprite,
+                        ball.position, Color.White);
+                }
+
+            }
             spriteBatch.Draw(Cannon.sprite,
                 Cannon.position,
                 null,
