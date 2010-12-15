@@ -107,7 +107,6 @@ namespace Cell_Project4
             UpdateCannonBalls();
 
             previousKeyboardState = KeyboardState;
-#endif
             base.Update(gameTime);
         }
 
