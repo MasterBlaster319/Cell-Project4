@@ -116,8 +116,19 @@ namespace Cell_Project4
             if (StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
 
                 FireCannonBall();
-             
-                 UpdateCannonBalls();
+
+            if (StateOfTheKeyboard.IsKeyDown(Keys.S))
+            {
+                Cannon.position.Y = Cannon.position.Y + 1.75f;
+            }
+            else if (StateOfTheKeyboard.IsKeyDown(Keys.W))
+                Cannon.position.Y = Cannon.position.Y - 1.75f;
+            else if (StateOfTheKeyboard.IsKeyDown(Keys.A))
+                Cannon.position.X = Cannon.position.X - 1.75f;
+            else if (StateOfTheKeyboard.IsKeyDown(Keys.D))
+                Cannon.position.X = Cannon.position.X + 1.75f;
+            
+            UpdateCannonBalls();
 
             previousKeyboardState = StateOfTheKeyboard;
             base.Update(gameTime);
