@@ -24,19 +24,19 @@ namespace Cell_Project4
         const int MAXCANNONBALLS = 3;
         GameObject[] CannonBalls;
         KeyboardState previousKeyboardState = Keyboard.GetState();
-      
+
 
         // It is considered good style that const variables are in all uppercase.
-        
+
 
         const int MAXENEMIES = 3;
-        const float MAXENEMYHEIGHT = 0.1f;
-        const float MINENEMYHEIGHT = 0.5f;
+        const float MAXENEMYHEIGHT = 0.05f;
+        const float MINENEMYHEIGHT = 0.02f;
         const float MAXENEMYVELOCITY = 5.0f;
         const float MINENEMYVELOCITY = 1.0f;
         Random random = new Random();
         GameObject[] enemies;
-        
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -70,7 +70,7 @@ namespace Cell_Project4
             Cannon = new GameObject(Content.Load<Texture2D>("Sprites\\cannon"));
             Cannon.position = new Vector2(750, graphics.GraphicsDevice.Viewport.Height - 250);
             CannonBalls = new GameObject[MAXCANNONBALLS];
-            for(int i = 0; i < MAXCANNONBALLS; i++)
+            for (int i = 0; i < MAXCANNONBALLS; i++)
             {
                 CannonBalls[i] = new GameObject(Content.Load<Texture2D>("Sprites\\cannonball"));
                 enemies = new GameObject[MAXENEMIES];
@@ -85,7 +85,7 @@ namespace Cell_Project4
             }
         }
 
-       
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -128,7 +128,7 @@ namespace Cell_Project4
                 Cannon.position.X = Cannon.position.X - 1.75f;
             else if (StateOfTheKeyboard.IsKeyDown(Keys.D))
                 Cannon.position.X = Cannon.position.X + 1.75f;
-            
+
             UpdateCannonBalls();
             UpdateEnemies();
             previousKeyboardState = StateOfTheKeyboard;
@@ -168,7 +168,7 @@ namespace Cell_Project4
 
             }
 
-               
+
         }
 
 
@@ -188,9 +188,9 @@ namespace Cell_Project4
                 }
             }
         }
-        
-        
-        
+
+
+
         public void UpdateCannonBalls()
         {
             foreach (GameObject ball in CannonBalls)
@@ -198,24 +198,45 @@ namespace Cell_Project4
                 if (ball.alive)
                 {
                     ball.position += ball.velocity;
-                    if (!Viewport.Contains (new Point (
+                    if (!Viewport.Contains(new Point(
                         (int)ball.position.X,
                         (int)ball.position.Y)))
                     {
                         ball.alive = false;
                         continue;
                     }
+               Rectangle cannonBallRect = new Rectangle(
+                   (int)ball.position.X,
+                   (int)ball.position.Y,
+                   ball.sprite.Width,
+                   ball.sprite.Height);
+
+                   foreach (GameObject enemy in enemies)
+                   {
+                       Rectangle enemyRect = new Rectangle(
+                           (int)enemy.position.X,
+                           (int)enemy.position.Y,
+                           enemy.sprite.Width,
+                           enemy.sprite.Height);
+
+                       if (cannonBallRect.Intersects(enemyRect))
+                       {
+                           ball.alive = false;
+                           enemy.alive = false;
+                           break;
+                       }
+                   }
                 }
             }
         }
 
 
 
-      
+
 
         /// <summary>
         /// We all this when we want to update the screen position of the cannon balls.
-       
+
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -245,17 +266,23 @@ namespace Cell_Project4
                 1.0f,
                 SpriteEffects.None,
                 0);
-            spriteBatch.End();
 
-            foreach(GameObject enemy in enemies)
+
+            foreach (GameObject enemy in enemies)
             {
-                if(enemy.alive)
+                if (enemy.alive)
                 {
                     spriteBatch.Draw(enemy.sprite,
-                        enemy.position,Color.White);
+                        enemy.position, Color.White);
+                    
                 }
+               
+            }
 
+            spriteBatch.End();
             base.Draw(gameTime);
         }
+
     }
 }
+                
