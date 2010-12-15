@@ -30,8 +30,8 @@ namespace Cell_Project4
 
 
         const int MAXENEMIES = 3;
-        const float MAXENEMYHEIGHT = 0.05f;
-        const float MINENEMYHEIGHT = 0.02f;
+        const float MAXENEMYHEIGHT = 0.5f;
+        const float MINENEMYHEIGHT = 0.01f;
         const float MAXENEMYVELOCITY = 5.0f;
         const float MINENEMYVELOCITY = 1.0f;
         Random random = new Random();
