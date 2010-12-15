@@ -112,11 +112,12 @@ namespace Cell_Project4
             {
                 Cannon.rotation += 0.1f;
             }
-           
-             if (StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
-           
-          
-             UpdateCannonBalls();
+
+            if (StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
+
+                FireCannonBall();
+             
+                 UpdateCannonBalls();
 
             previousKeyboardState = StateOfTheKeyboard;
             base.Update(gameTime);
@@ -161,11 +162,7 @@ namespace Cell_Project4
 
 
 
-        private void FireCannonBall()
-        {
-            // Remove this exception throw and add your code here.
-
-        }
+      
 
         /// <summary>
         /// We all this when we want to update the screen position of the cannon balls.
