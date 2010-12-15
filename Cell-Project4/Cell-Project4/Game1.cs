@@ -99,15 +99,20 @@ namespace Cell_Project4
             {
                 Cannon.rotation += 0.1f;
             }
-            if(KeyboardState.IsKeyDown(Keys.Space) &&
-                previousKeyboardState.IsKeyUp(Keys.Space)
+            if(StateOfTheKeyboard.IsKeyDown(Keys.Space) && previousKeyboardState.IsKeyUp(Keys.Space))
             {
                 FireCannonBall();
             }
             UpdateCannonBalls();
 
-            previousKeyboardState = KeyboardState;
+            previousKeyboardState = StateOfTheKeyboard;
             base.Update(gameTime);
+        }
+
+        private void FireCannonBall()
+        {
+            // Remove this exception throw and add your code here.
+            throw new NotImplementedException();
         }
 
         /// <summary>
