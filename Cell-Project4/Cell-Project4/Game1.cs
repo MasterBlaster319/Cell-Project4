@@ -36,6 +36,7 @@ namespace Cell_Project4
         const float MINENEMYVELOCITY = 1.0f;
         Random random = new Random();
         GameObject[] enemies;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -72,15 +73,15 @@ namespace Cell_Project4
             for(int i = 0; i < MAXCANNONBALLS; i++)
             {
                 CannonBalls[i] = new GameObject(Content.Load<Texture2D>("Sprites\\cannonball"));
-                Viewport = new Rectangle(0, 0,
-                    graphics.GraphicsDevice.Viewport.Width,
-                    graphics.GraphicsDevice.Viewport.Height);
                 enemies = new GameObject[MAXENEMIES];
                 for (int t = 0; t < MAXENEMIES; t++)
                 {
-                    enemies[i] = new GameObject(
+                    enemies[t] = new GameObject(
                         Content.Load<Texture2D>("Sprites\\enemy"));
                 }
+                Viewport = new Rectangle(0, 0,
+                    graphics.GraphicsDevice.Viewport.Width,
+                    graphics.GraphicsDevice.Viewport.Height);
             }
         }
 
@@ -129,10 +130,47 @@ namespace Cell_Project4
                 Cannon.position.X = Cannon.position.X + 1.75f;
             
             UpdateCannonBalls();
-
+            UpdateEnemies();
             previousKeyboardState = StateOfTheKeyboard;
             base.Update(gameTime);
         }
+
+        public void UpdateEnemies()
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                if (enemy.alive)
+                {
+                    enemy.position += enemy.velocity;
+                    if (!Viewport.Contains(new Point(
+                        (int)enemy.position.X,
+                        (int)enemy.position.Y)))
+                    {
+                        enemy.alive = false;
+                    }
+                }
+                else
+                {
+                    enemy.alive = true;
+                    enemy.position = new Vector2(
+                        Viewport.Right,
+                        MathHelper.Lerp(
+                        (float)Viewport.Height * MINENEMYHEIGHT,
+                        (float)Viewport.Height * MAXENEMYHEIGHT,
+                        (float)random.NextDouble()));
+                    enemy.velocity = new Vector2(
+                        MathHelper.Lerp(
+                        -MINENEMYVELOCITY,
+                        -MAXENEMYVELOCITY,
+                        (float)random.NextDouble()), 0);
+                }
+
+
+            }
+
+               
+        }
+
 
         public void FireCannonBall()
         {
@@ -208,6 +246,14 @@ namespace Cell_Project4
                 SpriteEffects.None,
                 0);
             spriteBatch.End();
+
+            foreach(GameObject enemy in enemies)
+            {
+                if(enemy.alive)
+                {
+                    spriteBatch.Draw(enemy.sprite,
+                        enemy.position,Color.White);
+                }
 
             base.Draw(gameTime);
         }
