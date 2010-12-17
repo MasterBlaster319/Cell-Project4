@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\background.xnb</Output>
-      <Time>2010-12-13T18:40:29.7598998-05:00</Time>
+      <Output>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\background.xnb</Output>
+      <Time>2010-12-16T08:19:13.8205693-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\cannon.tga</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\cannon.xnb</Output>
-      <Time>2010-12-13T18:40:29.7649001-05:00</Time>
+      <Output>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\cannon.xnb</Output>
+      <Time>2010-12-16T08:19:13.8245695-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\cannonball.tga</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\cannonball.xnb</Output>
-      <Time>2010-12-13T18:40:29.7689004-05:00</Time>
+      <Output>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\cannonball.xnb</Output>
+      <Time>2010-12-16T08:19:13.8265697-05:00</Time>
     </Item>
     <Item>
       <Source>Sprites\enemy.tga</Source>
@@ -34,19 +34,19 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\enemy.xnb</Output>
-      <Time>2010-12-13T18:40:29.7739006-05:00</Time>
+      <Output>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\Sprites\enemy.xnb</Output>
+      <Time>2010-12-16T08:19:13.8295698-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>HiDef</TargetProfile>
+      <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Release</BuildConfiguration>
       <CompressContent>true</CompressContent>
-      <RootDirectory>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4Content\</RootDirectory>
-      <LoggerRootDirectory>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4Content\obj\x86\Release\</IntermediateDirectory>
-      <OutputDirectory>c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

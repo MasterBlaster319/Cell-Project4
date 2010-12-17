@@ -8,3 +8,8 @@ c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\C
 c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Release\Cell-Project4.exe
 c:\users\kel\documents\visual studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Release\Cell-Project4.pdb
+C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Release\Cell-Project4.TrustInfo.xml
+C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Release\Cell-Project4.exe.manifest
+C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Cell-Project4.exe.manifest
+C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\bin\x86\Release\Cell-Project4.application
+C:\Users\Kel\Documents\Visual Studio 2010\Projects\Cell-Project4\Cell-Project4\Cell-Project4\obj\x86\Release\Cell-Project4.application
